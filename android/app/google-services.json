@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "943295016695",
+    "project_id": "elodex-1c8a1",
+    "storage_bucket": "elodex-1c8a1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943295016695:android:999d97773d13aea2adedf2",
+        "android_client_info": {
+          "package_name": "com.elodex.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "943295016695-74loendq9hbrifukcr8fqshtoi9aq6fr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdG_50Fuc-vEIZIHjvIkCQmE0OkMl-koI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "943295016695-74loendq9hbrifukcr8fqshtoi9aq6fr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
