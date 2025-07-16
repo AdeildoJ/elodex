@@ -2,24 +2,44 @@
 
 buildscript {
     ext {
-        buildToolsVersion = "33.0.0"
-        minSdkVersion = 21
-        compileSdkVersion = 33
-        targetSdkVersion = 33
-        ndkVersion = "23.1.7779620"
+    buildToolsVersion = "33.0.0"
+    minSdkVersion = 21
+    compileSdkVersion = 33
+    targetSdkVersion = 33
+    ndkVersion = "23.1.7779620"
+
+    // 👇 Adicione ou ajuste essa linha
+    kotlin_version = project.hasProperty('kotlinVersion') ? kotlinVersion : '1.8.10'
+}
+
+    repositories {
+        google()
+        mavenCentral()
+        // ✅ Repositório adicional do Kotlin
+        maven { url "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven" }
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.3.1")
+        classpath("com.android.tools.build:gradle")
         classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath 'com.google.gms:google-services:4.3.15'
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
 
+// ✅ Agora fora do buildscript:
 allprojects {
     repositories {
         google()
         mavenCentral()
-        maven { url "https://www.jitpack.io" }
+    }
+
+    // Forçar todas as dependências Kotlin para 1.8.10
+    configurations.all {
+    resolutionStrategy {
+        eachDependency { details ->
+            if (details.requested.group == 'org.jetbrains.kotlin') {
+                details.useVersion '1.9.20'
+            }
+        }
     }
 }
-
+}
